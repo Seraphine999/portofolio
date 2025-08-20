@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>How to play</title>
+	<style>
+		body {
+			background: #1e1e1e;
+      font-family: Comic Sans MS;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background: #111;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+			}
+
+			h2 {
+      margin-top: 0;
+    }
+
+    p {
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background: #2a2a2a;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #e6a80d;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .tab {
+      flex: 1;
+      background: #2a2a2a;
+      padding: 8px;
+      text-align: center;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .tab.active {
+      background: #666;
+    }
+
+    .steps {
+      background: #1e1e1e;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .steps a {
+      color: #3399ff;
+      text-decoration: none;
+    }
+
+    /* Toast box */
+    #toast {
+      visibility: hidden;
+      min-width: 220px;
+      margin-left: -110px;
+      background: rgba(30,30,30,0.9);
+			color: #ffbb0f;
+      text-align: center;
+      border-radius: 8px;
+      padding: 12px;
+      position: fixed;
+      left: 50%;
+      bottom: -60px;
+      font-size: 14px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+			z-index: 9999;
+      opacity: 0;
+    }
+
+    #toast.show {
+      visibility: visible;
+      animation: slideUp 0.5s forwards, slideDown 0.5s 2.5s forwards;
+    }
+
+    @keyframes slideUp {
+      from { bottom: -60px; opacity: 0; }
+      to { bottom: 30px; opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { bottom: 30px; opacity: 1; }
+      to { bottom: -60px; opacity: 0; }
+    }
+		</style>
+	</head>
+	<body>
+
+		<div class="container">
+			<h2>How to play <span style="color:tomato">SERAPS</span></h2>
+			<p>
+				This made for you to connect to GTPS
+			</p>
+
+			<!-- Button download -->
+			<button class="btn"
+				onclick="window.location.href='https://www.mediafire.com/file/iz8wxryzuu2wyhb/growsoft.txt/file'">
+				Download <span style="color:tomato">Virtual host File</span>
+			</button>
+
+			<!-- Button copy link -->
+			<button class="btn" onclick="copyLink('https://growsoft.cc/android.txt')">
+				Copy <span style="color:tomato">Powertunnel</span>
+			</button>
+			<button class="btn" onclick="copyLink('https://growsoft.cc/ios.txt')">
+				Copy <span style="color:tomato">iOS (Surge 5)</span>
+			</button>
+
+			<!-- Button copy multiline text -->
+			<button class="btn" onclick="copyText(`91.134.85.13 growtopia1.com
+				91.134.85.13 growtopia2.com
+				91.134.85.13 www.growtopia1.com
+				91.134.85.13 www.growtopia2.com`)">
+				Copy <span style="color:tomato">Windows Host Text</span>
+			</button>
+
+			<button class="btn" onclick="copyText(`91.134.85.13 growtopia1.com
+				91.134.85.13 growtopia2.com
+				91.134.85.13 www.growtopia1.com
+				91.134.85.13 www.growtopia2.com`)">
+				Copy <span style="color:tomato">MacOS Host Text</span>
+			</button>
+
+			<!-- Toast -->
+			<div id="toast"></div>
+
+			<div class="tabs">
+				<div class="tab active">
+					Android
+				</div>
+				<div class="tab">
+					iOS
+				</div>
+				<div class="tab">
+					Windows
+				</div>
+
+			</div>
+
+			<div class="steps">
+				<p>
+					1 - First, download Powertunnel APP from <a href="#">here</a>
+				</p>
+				<p>
+					2 - and then click on the "Powertunnel" button.
+				</p>
+				<p>
+					3 - It will copy the powertunnel host link.
+				</p>
+				<p>
+					4 - Then open the powertunnel app, click the three-line icon, and click on the host settings icon.
+				</p>
+				<p>
+					5 - Paste the copied powertunnel host URL. Also, change the host update period from 12 hours to on start.
+				</p>
+				<p>
+					6 - Now you can log in to your GTPS!
+				</p>
+			</div>
+		</div>
+
+		<script>
+			// fungsi untuk salin link
+			function copyLink(link) {
+				navigator.clipboard.writeText(link)
+				.then(() => {
+					showToast("Link berhasil disalin!");
+				})
+				.catch(err => {
+					showToast("Gagal menyalin link!");
+					console.error("Error:", err);
+				});
+			}
+
+			// fungsi untuk salin teks multiline
+			function copyText(text) {
+				navigator.clipboard.writeText(text)
+				.then(() => {
+					showToast("Host berhasil disalin!");
+				})
+				.catch(err => {
+					showToast("Gagal menyalin host!");
+					console.error("Error:", err);
+				});
+			}
+
+			// toast notif
+			function showToast(message) {
+				const toast = document.getElementById("toast");
+				toast.innerText = message;
+				toast.className = "show";
+				setTimeout(() => {
+					toast.className = toast.className.replace("show", "");
+				}, 3000);
+			}
+		</script>
+
+	</body>
+</html>
