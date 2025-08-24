@@ -6,11 +6,13 @@
   <title>How to play</title>
   <style>
     body {
-      background: #1e1e1e;
+      background: linear-gradient(180deg,#45aaf2, #d980fa);
+      min-height: 100vh;
       font-family: Comic Sans MS;
       color: #fff;
       margin: 0;
       padding: 20px;
+      overflow: hidden;
     }
 
     .container {
@@ -19,7 +21,9 @@
       padding: 20px;
       max-width: 500px;
       margin: auto;
+      margin-top: 120px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+      padding-bottom: 20px;
     }
 
     h2 {
@@ -48,11 +52,11 @@
       text-align: center;
       cursor: pointer;
       font-size: 15px;
-      transition: 0.2s;
+      transition: 1s;
     }
 
     .btn:hover {
-      background: #e6a80d;
+      background: linear-gradient(90deg,#45aaf2, #d980fa);
     }
 
     .tabs {
@@ -67,13 +71,16 @@
       padding: 8px;
       text-align: center;
       border-radius: 20px;
-      cursor: pointer;
       font-size: 14px;
-      transition: 0.2s;
+      transition: 1s;
     }
 
     .tab.active {
-      background: #666;
+      background: linear-gradient(90deg,#45aaf2, #d980fa);
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 20px 6px (0,0,0,5);
+      
     }
 
     .steps {
