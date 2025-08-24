@@ -3,17 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidebar Modern</title>
+  <title>SERA PS</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #1e1e1e; /* background solid */
+      background: #0b0b12; /* background solid */
       height: 100vh;
       overflow-x: hidden;
+      color: #ddd;
+      text-align: center;
     }
 
-    /* Overlay */
+    /* Background animasi bintang */
+    .stars {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background: transparent;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 5s infinite ease-in-out;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    /* Sidebar */
     .overlay {
       position: fixed;
       top: 0; left: 0;
@@ -23,11 +47,8 @@
       transition: 0.3s;
       z-index: 900;
     }
-    .overlay.show {
-      opacity: 1; visibility: visible;
-    }
+    .overlay.show { opacity: 1; visibility: visible; }
 
-    /* Sidebar */
     .sidebar {
       position: fixed;
       top: 0; left: -280px;
@@ -42,7 +63,6 @@
     }
     .sidebar.show { left: 0; }
 
-    /* Card Section */
     .menu-section {
       background: rgba(20,20,20,0.9);
       border-radius: 12px;
@@ -67,20 +87,21 @@
       cursor: pointer;
       transition: 0.3s;
     }
-    .menu-item:hover {
-      background: rgba(255,255,255,0.2);
-    }
+    .menu-item:hover { background: rgba(255,255,255,0.2); }
     .menu-item img {
-      width: 22px;
-      height: 22px;
+      width: 22px; height: 22px;
       margin-right: 10px;
     }
+    .menu-item a {
+      text-decoration: none;
+      color: white;
+      flex: 1;
+    }
 
-    /* Tombol */
+    /* Tombol buka menu */
     .menu-btn {
       position: fixed;
-      bottom: 20px;
-      left: 20px;
+      bottom: 20px; left: 20px;
       background: yellow;
       color: black;
       font-weight: bold;
@@ -91,37 +112,107 @@
       z-index: 1100;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      padding: 20px;
+    }
+    .hero h1 {
+      font-size: 42px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #45aaf2, #d980fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #bbb;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto 20px;
+    }
+    .hero strong { color: #fff; }
+
+    /* Tombol Download Glow */
+    .btn-download {
+      display: inline-block;
+      padding: 12px 28px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      background: linear-gradient(90deg, #45aaf2, #d980fa);
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(69,170,242,0.7), 0 0 25px rgba(217,128,250,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-download::after {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+      animation: glow 3s infinite linear;
+    }
+    @keyframes glow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .btn-download:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(69,170,242,1), 0 0 35px rgba(217,128,250,1);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Overlay -->
-  <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+  <!-- Background animasi bintang -->
+  <div class="stars" id="stars"></div>
 
   <!-- Sidebar -->
+  <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
   <div id="sidebar" class="sidebar">
-    <!-- Bagian MENU -->
     <div class="menu-section">
       <h3>MENU</h3>
-      <div class="menu-item"><img
-      src="https://img.icons8.com/ios-filled/50/ffffff/home.png"/> Home</div>
-      <div class="menu-item"><img
-      src="https://img.icons8.com/ios-filled/50/ffffff/downloads.png"/><a href="howtoplay.html" style="text-decoration: none; color: white;"> How to
-      play</a></div>
-      <div class="menu-item"><img
-      src="https://img.icons8.com/ios-filled/50/ffffff/update-left-rotation.png"/>
-      Recovery account</div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png"/> Home</div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/ffffff/downloads.png"/><a href="howtoplay.html">How to play</a></div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/ffffff/update-left-rotation.png"/> Recovery account</div>
       <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png"/> Discord</div>
     </div>
   </div>
-  
-  <!-- Tombol Menu -->
   <button class="menu-btn" onclick="toggleMenu()">Menu</button>
 
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>SERA PS</h1>
+    <p>
+      Private server ringan untuk Android, iOS, dan PC. Cepat, sederhana, dan stabil.  
+      Cocok untuk main bareng, pembelajaran, atau project kecil.  
+      Hanya memakan <strong>15MB RAM!</strong>
+    </p>
+    <a href="#download" class="btn-download">⬇ Download Gratis</a>
+  </section>
+
   <script>
+    // Sidebar toggle
     function toggleMenu() {
       document.getElementById("sidebar").classList.toggle("show");
       document.getElementById("overlay").classList.toggle("show");
+    }
+
+    // Bintang animasi
+    const starsContainer = document.getElementById("stars");
+    for (let i = 0; i < 50; i++) {
+      let star = document.createElement("div");
+      star.classList.add("star");
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDuration = (3 + Math.random() * 5) + "s";
+      starsContainer.appendChild(star);
     }
   </script>
 
