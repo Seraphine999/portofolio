@@ -3,146 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidebar Modern</title>
+  <title>SERA PS</title>
   <style>
     body {
       margin: 0;
+      background: #1e1e1e; /* background gelap */
       font-family: Arial, sans-serif;
-      background: #1e1e1e; /* background solid */
-      height: 100vh;
-      overflow-x: hidden;
     }
-
-    .header {
-      background: #1e1e1e;
+    header {
       padding: 20px;
-      text-align: center;
+      text-align: center; /* teks center horizontal */
     }
-    .header h1 {
-      margin: 0;
+    header h1 {
       font-size: 2.5em;
       font-weight: bold;
-      text-align: center;
-      background: linear-gradient(90deg , #45aaf2 , #d980fa);
+      margin: 0;
+      background: linear-gradient(90deg, #45aaf2, #d980fa); /* gradasi biru → ungu */
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-fill-color: transparent;
-    }
-    /* Overlay */
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      opacity: 0; visibility: hidden;
-      transition: 0.3s;
-      z-index: 900;
-    }
-    .overlay.show {
-      opacity: 1; visibility: visible;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      position: fixed;
-      top: 0; left: -280px;
-      width: 260px;
-      height: 100%;
-      padding: 20px;
-      transition: 0.4s ease;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .sidebar.show { left: 0; }
-
-    /* Card Section */
-    .menu-section {
-      background: rgba(20,20,20,0.9);
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-    .menu-section h3 {
-      margin: 0 0 10px;
-      color: white;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
-    .menu-item {
-      display: flex;
-      align-items: center;
-      background: rgba(255,255,255,0.08);
-      padding: 10px;
-      border-radius: 8px;
-      color: #ddd;
-      margin-bottom: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .menu-item:hover {
-      background: rgba(255,255,255,0.2);
-    }
-    .menu-item img {
-      width: 22px;
-      height: 22px;
-      margin-right: 10px;
-    }
-
-    /* Tombol */
-    .menu-btn {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: yellow;
-      color: black;
-      font-weight: bold;
-      border: none;
-      border-radius: 50px;
-      padding: 12px 18px;
-      cursor: pointer;
-      z-index: 1100;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      color: transparent;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Seraps Private Server</h1>
+    <h1>SERAPS Private Server</h1>
   </header>
-  <!-- Overlay -->
-  <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
-
-  <!-- Sidebar -->
-  <div id="sidebar" class="sidebar">
-    <!-- Bagian MENU -->
-    <div class="menu-section">
-      <h3>MENU</h3>
-      <div class="menu-item"><img
-      src="https://img.icons8.com/ios-filled/50/ffffff/home.png"/> Home</div>
-      <div class="menu-item"><img
-      src="https://img.icons8.com/ios-filled/50/ffffff/downloads.png"/><a href="howtoplay.html" style="text-decoration: none; color: white;"> How to
-      play</a></div>
-      <div class="menu-item"><img
-      src="https://img.icons8.com/ios-filled/50/ffffff/update-left-rotation.png"/>
-      Recovery account</div>
-      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png"/> Discord</div>
-    </div>
-  </div>
-  
-  <!-- Tombol Menu -->
-  <button class="menu-btn" onclick="toggleMenu()">Menu</button>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById("sidebar").classList.toggle("show");
-      document.getElementById("overlay").classList.toggle("show");
-    }
-  </script>
 
 </body>
 </html>
