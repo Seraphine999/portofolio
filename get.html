@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to play</title>
+  <style>
+    body {
+      background: #0a0d1a;
+      min-height: 100vh;
+      font-family: Comic Sans MS;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      overflow: hidden;
+    }
+    
+.aurora {position: fixed; inset: 0; z-index: -1; background: var(--bg); overflow: hidden;}
+.blob {position: absolute; width: 70vmax; height: 70vmax; border-radius: 50%; filter: blur(80px); opacity: .55; mix-blend-mode: screen; animation: float 22s ease-in-out infinite;}
+.b1 {background: radial-gradient(circle at 30% 30%, #00ffcc, transparent 70%); top: -20vmax; left: -10vmax; animation-duration: 26s;}
+.b2 {background: radial-gradient(circle at 70% 40%, #cc66ff, transparent 70%); top: -15vmax; right: -15vmax; animation-duration: 28s; animation-delay: -6s;}
+.b3 {background: radial-gradient(circle at 40% 60%, #00ffaa, transparent 70%); bottom: -25vmax; left: 10vmax; animation-duration: 24s; animation-delay: -10s;}
+.b4 {background: radial-gradient(circle at 50% 50%, #9966ff, transparent 70%); bottom: -20vmax; right: -20vmax; animation-duration: 30s; animation-delay: -14s;}
+
+@keyframes float {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(5vmax,-5vmax,0) scale(1.05); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+    .container {
+      background: #111;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      margin-top: 120px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+      padding-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      background: linear-gradient(90deg,#45aaf2, #d980fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    p {
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background: #2a2a2a;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 1s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg,#45aaf2, #d980fa);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .tab {
+      flex: 1;
+      background: #2a2a2a;
+      padding: 8px;
+      text-align: center;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: 1s;
+    }
+
+    .tab.active {
+      background: linear-gradient(90deg,#45aaf2, #d980fa);
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 20px 6px (0,0,0,5);
+      
+    }
+
+    .steps {
+      background: #1e1e1e;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .steps a {
+      color: #3399ff;
+      text-decoration: none;
+    }
+
+    /* Toast box */
+    #toast {
+      visibility: hidden;
+      min-width: 220px;
+      margin-left: -110px;
+      background: rgba(30,30,30,0.9);
+      color: #ffbb0f;
+      text-align: center;
+      border-radius: 8px;
+      padding: 12px;
+      position: fixed;
+      left: 50%;
+      bottom: -60px;
+      font-size: 14px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+      z-index: 9999;
+      opacity: 0;
+    }
+
+    #toast.show {
+      visibility: visible;
+      animation: slideUp 0.5s forwards, slideDown 0.5s 2.5s forwards;
+    }
+
+    @keyframes slideUp {
+      from { bottom: -60px; opacity: 0; }
+      to { bottom: 30px; opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { bottom: 30px; opacity: 1; }
+      to { bottom: -60px; opacity: 0; }
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+  </style>
+</head>
+<body>
+  
+  <div class="aurora">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div>
+  </div>
+
+  <div class="container">
+    <h2>Growtopia Private Server SERAPS</h2>
+    <p>This made for you to connect to GTPS</p>
+
+    <div class="tabs">
+      <div class="tab active" onclick="openTab('android', this)">Android</div>
+      <div class="tab" onclick="openTab('ios', this)">iOS</div>
+      <div class="tab" onclick="openTab('winmac', this)">Win+Mac</div>
+    </div>
+
+    <!-- ANDROID -->
+    <div id="android" class="tab-content active">
+      <button class="btn" onclick="window.location.href='https://www.mediafire.com/file/iz8wxryzuu2wyhb/growsoft.txt/file'">
+        Download Virtual host File
+      </button>
+      <button class="btn" onclick="copyLink('https://growsoft.cc/android.txt')">Copy Powertunnel</button>
+
+      <div class="steps">
+        <p>1 - Download Powertunnel APP from <a href="https://sfile.mobi/9yeA3hP6fYz">here</a></p>
+        <p>2 - Click on the "Powertunnel" button.</p>
+        <p>3 - It will copy the powertunnel host link.</p>
+        <p>4 - Open Powertunnel app → menu → host settings.</p>
+        <p>5 - Paste link & set update period "on start".</p>
+        <p>6 - Login to GTPS!</p>
+      </div>
+    </div>
+
+    <!-- IOS -->
+    <div id="ios" class="tab-content">
+      <button class="btn" onclick="copyLink('https://growsoft.cc/ios.txt')">Copy iOS (Surge 5)</button>
+      <div class="steps">
+        <p>1 - Install <b>Surge 5</b> from App Store.</p>
+        <p>2 - Click "Copy iOS" button above.</p>
+        <p>3 - Paste into Surge host config.</p>
+        <p>4 - Save & start VPN → connect to GTPS!</p>
+      </div>
+    </div>
+
+    <!-- WINDOWS & MAC -->
+    <div id="winmac" class="tab-content">
+      <button class="btn" onclick="copyText(`91.134.85.13 growtopia1.com
+91.134.85.13 growtopia2.com
+91.134.85.13 www.growtopia1.com
+91.134.85.13 www.growtopia2.com`)">
+        Copy Windows Host
+      </button>
+      <button class="btn" onclick="copyText(`91.134.85.13 growtopia1.com
+91.134.85.13 growtopia2.com
+91.134.85.13 www.growtopia1.com
+91.134.85.13 www.growtopia2.com`)">
+        Copy MacOS Host
+      </button>
+
+      <div class="steps">
+        <p>1 - Open <b>hosts</b> file (C:\Windows\System32\drivers\etc\hosts).</p>
+        <p>2 - Paste the copied host lines.</p>
+        <p>3 - Save file (Admin permission needed).</p>
+        <p>4 - Restart Growtopia & login to GTPS!</p>
+      </div>
+    </div>
+
+    <div id="toast"></div>
+  </div>
+
+  <script>
+    // Fungsi tab
+    function openTab(id, el) {
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      el.classList.add('active');
+    }
+
+    // fungsi copy link
+    function copyLink(link) {
+      navigator.clipboard.writeText(link)
+      .then(() => showToast("Link copied!"))
+      .catch(() => showToast("Gagal menyalin link!"));
+    }
+
+    // fungsi copy text multiline
+    function copyText(text) {
+      navigator.clipboard.writeText(text)
+      .then(() => showToast("Host copied!"))
+      .catch(() => showToast("Gagal menyalin host!"));
+    }
+
+    // toast notif
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.innerText = message;
+      toast.className = "show";
+      setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+      }, 3000);
+    }
+    
+    const blobs = document.querySelectorAll('.aurora .blob');
+  let mouseX = 0, mouseY = 0, currentX = 0, currentY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX / window.innerWidth;
+    mouseY = e.clientY / window.innerHeight;
+  });
+
+  function animateAurora() {
+    currentX += (mouseX - currentX) * 0.05;
+    currentY += (mouseY - currentY) * 0.05;
+
+    blobs.forEach((blob, i) => {
+      const factor = 15 + i * 5;
+      const floatY = Math.sin(Date.now() / 1000 + i) * 10;
+      blob.style.transform = `translate(${currentX*factor}px, ${currentY*factor+floatY}px)`;
+    });
+
+    requestAnimationFrame(animateAurora);
+  }
+  animateAurora();
+  </script>
+
+</body>
+</html>
