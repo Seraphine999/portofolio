@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portfolio</title>
+<link rel="stylesheet" href="design.css">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="aurora">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="blob b4"></div>
+  </div>
+<header>
+  <div class="logo">Seraphine</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#discord">Discord</a>
+    <a href="#" id="openPopup">Rate us</a>
+  </nav>
+</header>
+
+<section id="home" class="home"></section>
+  <main id="main" class="main">
+    <h1>Growtopia Private Server</h1>
+    <p>Welcome everyone, get your host to play with us!</p>
+    <a class="btn" href="#">Get Started</a>
+  </main>
+  
+<section id="features" class="features">
+    <div class="feature-card">
+      <h3>Roles Prices</h3>
+      <p>We provide affordable roles prices for every player, to make easier for players to explore.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Custom Items</h3>
+      <p>Access exclusive items and content not available in the official game. Customize your experience with unique cosmetics and tools.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Enhanced Rates</h3>
+      <p>Enjoy increased drop rates and faster progression. Level up quicker and obtain rare items with improved chances.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Friendly Community</h3>
+      <p>Join a welcoming community of players. Make new friends, trade items, and participate in exclusive events.</p>
+    </div>
+</section>
+
+<section class="server-stats">
+    <h2>Server Statistics</h2>
+    <div class="stats-grid">
+          <div class="stat">
+          <div class="stat-number">10</div>
+          <div class="stat-label">Online Players</div>
+          </div>
+          <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Uptime</div>
+          </div>
+          <div class="stat">
+          <div class="stat-number">15</div>
+          <div class="stat-label">Unique Worlds</div>
+          </div>
+          <div class="stat">
+          <div class="stat-number">10</div>
+          <div class="stat-label">Registered Users</div>
+          </div>
+      </div>
+</section>
+
+<section id="about" class="mades">
+    <div class="made-card">
+      <h3>Why play on SeraPS?</h3>
+      <p>Our server features over 1,000 custom items, including exclusive farmables, gachas, and decorative items crafted by a team of dedicated developers.</p>
+      <p>We are committed to delivering the best possible experience, with daily updates, continuous bug fixes, and exciting new content.</p>
+      <p>Beyond our unique items, we provide a robust player economy, thrilling events, and an active community. Whether you want to build, trade, or compete, our server is the perfect place for you.</p>
+      <p>Join a passionate community that loves Growtopia. Discover new mechanics, participate in unique events, and enjoy an experience like no other!</p>
+    </div>
+    <div class="made-card">
+      <h3>Rules</h3>
+      <p>SeraPS It's important to note that playing on our private server is typically separate from the official Growtopia servers and involves connecting to a different server address. The rules and regulations of the official game may not apply on private server.</p>
+      <p>We're not affiliated with or endorsed by Ubisoft.</p>
+    </div>
+    <div class="made-card">
+      <h3>Support & Purchase Policies</h3>
+      <p>If you encounter any issues with your purchases, please contact us on Discord, and we'll be happy to assist you.</p>
+      <p>⚠ Important: Opening a chargeback will result in a permanent ban from the server and store. Chargeback-related appeals will be automatically declined.</p>
+    </div>
+    <div class="made-card">
+      <h3>Website</h3>
+      <p>This website was made by Seraphine Web Developers, You can contact me on Discord below.</p>
+    </div>
+</section>
+
+<section id="discord" class="communities">
+    <div class="community-card">
+      <h3>Join Friendly Community</h3>
+      <img src="discord.png" alt="Join discord">
+    </div>
+</section>
+
+<div class="discord-button">
+  <a class="btn" href="https://discord.gg/E87sxMN4Kn">Visit Discord</a>
+</div>
+
+<section id="rating" class="popup">
+  <div class="popup-content">
+    <span class="close">&times;</span>
+    <h3>Rate our Server!</h3>
+    <p>Click a star to rate your experience:</p>
+    <div class="rate-box">
+      <span class="star" data-value="1">&#9733;</span>
+      <span class="star" data-value="2">&#9733;</span>
+      <span class="star" data-value="3">&#9733;</span>
+      <span class="star" data-value="4">&#9733;</span>
+      <span class="star" data-value="5">&#9733;</span>
+    </div>
+    
+    <div class="loader" id="ratingLoader">
+      <div class="loader-circle"></div>
+    </div>
+  </div>
+</section>
+  
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-text">
+      <small>All rights reserved. 2025 © <span class="highlight">SeraphinePS</span></small>
+      <p>We're not affiliated with Ubisoft or official Growtopia.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+   document.addEventListener("DOMContentLoaded", () => {
+   const cards = document.querySelectorAll(
+    ".feature-card, .made-card, .community-card, .stat, .server-stats, .main"
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
+  
+  document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const id = this.getAttribute('href').substring(1);
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  const blobs = document.querySelectorAll('.aurora .blob');
+  let mouseX = 0, mouseY = 0, currentX = 0, currentY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX / window.innerWidth;
+    mouseY = e.clientY / window.innerHeight;
+  });
+
+  function animateAurora() {
+    currentX += (mouseX - currentX) * 0.05;
+    currentY += (mouseY - currentY) * 0.05;
+
+    blobs.forEach((blob, i) => {
+      const factor = 15 + i * 5;
+      const floatY = Math.sin(Date.now() / 1000 + i) * 10;
+      blob.style.transform = `translate(${currentX*factor}px, ${currentY*factor+floatY}px)`;
+    });
+
+    requestAnimationFrame(animateAurora);
+  }
+  animateAurora();
+
+  const statNumbers = document.querySelectorAll('.stat-number');
+  statNumbers.forEach(stat => {
+    let text = stat.textContent.replace(/,/g, '');
+    const isPercent = text.includes('%');
+    let target = parseFloat(text) || 0;
+    let current = 0;
+    const steps = 60;
+    const increment = target / steps;
+
+    const updateNumber = () => {
+      if (current < target) {
+        current += increment;
+        if (current > target) current = target;
+        if (target % 1 !== 0) {
+          stat.textContent = current.toFixed(2).replace(/\.00$/, '') + (isPercent ? '%' : '');
+        } else {
+          stat.textContent = Math.round(current).toLocaleString() + (isPercent ? '%' : '');
+        }
+        requestAnimationFrame(updateNumber);
+      }
+    };
+    setTimeout(updateNumber, 900);
+  });
+
+  const popup = document.getElementById('rating');
+  const openBtn = document.getElementById('openPopup');
+  const closeBtn = document.querySelector('.popup .close');
+  const stars = document.querySelectorAll('.rate-box .star');
+
+  openBtn.onclick = () => { popup.style.display = 'flex'; animateStars(); };
+  closeBtn.onclick = () => popup.style.display = 'none';
+  window.onclick = (e) => { if(e.target==popup) popup.style.display='none'; }
+
+  function animateStars(){
+    stars.forEach((star,i)=>{
+      star.classList.remove('show');
+      setTimeout(()=> star.classList.add('show'), i*150);
+    });
+  }
+
+  stars.forEach(star => {
+    star.addEventListener('mouseover', () => highlight(star.dataset.value));
+    star.addEventListener('mouseout', () => highlight(0));
+    star.addEventListener('click', () => {
+      stars.forEach(s => s.classList.remove('selected'));
+      for(let i=0; i<star.dataset.value; i++) stars[i].classList.add('selected');
+      setTimeout(() => popup.style.display = 'none', 2000);
+    });
+  });
+
+  function highlight(value){
+    stars.forEach((s,i) => s.classList.toggle('hover', i < value));
+  }
+});
+</script>
+</body>
+</html>
